@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Attendance</title>
+    <style>
+        /* Internal CSS styles go here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 80%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>View Attendance</h2>
+        <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Lab Attendance</th>
+                <th>Class Attendance</th>
+            </tr>
+            {% for i in range(student_names|length) %}
+                <tr>
+                    <td>{{ student_names[i] }}</td>
+                    <td>{{ attendance_data[i] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <a href="{{ url_for('teacher_portal', username=username) }}">Back</a>
+    </div>
+</body>
+</html>
