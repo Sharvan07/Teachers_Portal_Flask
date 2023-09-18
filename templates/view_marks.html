@@ -1,57 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Marks</title>
-    <style>
-        /* Internal CSS styles go here */
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            margin: 0 auto;
-            width: 80%;
-            padding: 20px;
-            text-align: center;
-        }
-
-        h2 {
-            color: #007bff;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <h2>View Marks</h2>
-        <table>
+    <h1>View Marks</h1>
+    <table>
+        <thead>
             <tr>
                 <th>Student Name</th>
-                <th>Quiz Marks</th>
-                <th>Midterm Marks</th>
+                <th>Quiz 1 Marks</th>
+                <th>Quiz 2 Marks</th>
+                <th>Mid Marks</th>
                 <th>Terminal Marks</th>
             </tr>
+        </thead>
+        <tbody>
             {% for i in range(student_names|length) %}
                 <tr>
                     <td>{{ student_names[i] }}</td>
-                    <td>{{ quiz_marks[i] }}</td>
-                    <td>{{ mid_marks[i] }}</td>
-                    <td>{{ terminal_marks[i] }}</td>
+                    <td>{{ marks_data["Quiz 1"][i] }}</td>
+                    <td>{{ marks_data["Quiz 2"][i] }}</td>
+                    <td>{{ marks_data["Mid"][i] }}</td>
+                    <td>{{ marks_data["Terminal"][i] }}</td>
                 </tr>
             {% endfor %}
-        </table>
-        <br>
-        <a href="{{ url_for('teacher_portal', username=username) }}">Back</a>
-    </div>
+        </tbody>
+    </table>
 </body>
 </html>

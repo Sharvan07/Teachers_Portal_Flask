@@ -1,61 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insert Marks</title>
-    <style>
-        /* Internal CSS styles go here */
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            margin: 0 auto;
-            width: 80%;
-            padding: 20px;
-            text-align: center;
-        }
-
-        h2 {
-            color: #007bff;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Insert Marks</h2>
-        <form method="POST">
-            <table>
+    <h1>Insert Marks</h1>
+    <form method="POST">
+        <label for="assessment_type">Select Assessment Type:</label>
+        <select id="assessment_type" name="assessment_type">
+            <option value="Quiz 1">Quiz 1</option>
+            <option value="Quiz 2">Quiz 2</option>
+            <option value="Mid">Mid</option>
+            <option value="Terminal">Terminal</option>
+        </select>
+        <table>
+            <thead>
                 <tr>
                     <th>Student Name</th>
-                    <th>Quiz 1</th>
-                    <th>Quiz 2</th>
-                    <th>Midterm</th>
-                    <th>Terminal</th>
+                    <th>Marks</th>
                 </tr>
+            </thead>
+            <tbody>
                 {% for i in range(student_names|length) %}
                     <tr>
                         <td>{{ student_names[i] }}</td>
-                        <td><input type="number" name="quiz_1_{{ i }}" required></td>
-                        <td><input type="number" name="quiz_2_{{ i }}" required></td>
-                        <td><input type="number" name="mid_{{ i }}" required></td>
-                        <td><input type="number" name="terminal_{{ i }}" required></td>
+                        <td><input type="number" name="marks" required></td>
                     </tr>
                 {% endfor %}
-            </table>
-            <br>
-            <input type="submit" value="Submit">
-        </form>
-    </div>
+            </tbody>
+        </table>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>

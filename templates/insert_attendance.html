@@ -1,57 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insert Attendance</title>
-    <style>
-        /* Internal CSS styles go here */
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            margin: 0 auto;
-            width: 80%;
-            padding: 20px;
-            text-align: center;
-        }
-
-        h2 {
-            color: #007bff;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Insert Attendance</h2>
-        <form method="POST">
-            <table>
+    <h1>Insert Attendance</h1>
+    <form method="POST">
+        <label for="attendance_type">Select Attendance Type:</label>
+        <select id="attendance_type" name="attendance_type">
+            <option value="Lab">Lab Attendance</option>
+            <option value="Class">Class Attendance</option>
+        </select>
+        <table>
+            <thead>
                 <tr>
                     <th>Student Name</th>
-                    <th>Lab Attendance</th>
-                    <th>Class Attendance</th>
+                    <th>Attendance Status</th>
                 </tr>
+            </thead>
+            <tbody>
                 {% for i in range(student_names|length) %}
                     <tr>
                         <td>{{ student_names[i] }}</td>
-                        <td><input type="text" name="lab_{{ i }}" required></td>
-                        <td><input type="text" name="class_{{ i }}" required></td>
+                        <td>
+                            <select name="attendance_status">
+                                <option value="Present">Present</option>
+                                <option value="Absent">Absent</option>
+                            </select>
+                        </td>
                     </tr>
                 {% endfor %}
-            </table>
-            <br>
-            <input type="submit" value="Submit">
-        </form>
-    </div>
+            </tbody>
+        </table>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
