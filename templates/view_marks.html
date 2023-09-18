@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Marks</title>
+</head>
+<body>
+    <h1>View Marks</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Quiz 1 Marks</th>
+                <th>Quiz 2 Marks</th>
+                <th>Mid Marks</th>
+                <th>Terminal Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(student_names|length) %}
+                <tr>
+                    <td>{{ student_names[i] }}</td>
+                    <td>{{ marks_data["Quiz 1"][i] }}</td>
+                    <td>{{ marks_data["Quiz 2"][i] }}</td>
+                    <td>{{ marks_data["Mid"][i] }}</td>
+                    <td>{{ marks_data["Terminal"][i] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

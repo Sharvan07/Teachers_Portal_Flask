@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Attendance</title>
+</head>
+<body>
+    <h1>Insert Attendance</h1>
+    <form method="POST">
+        <label for="attendance_type">Select Attendance Type:</label>
+        <select id="attendance_type" name="attendance_type">
+            <option value="Lab">Lab Attendance</option>
+            <option value="Class">Class Attendance</option>
+        </select>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Attendance Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(student_names|length) %}
+                    <tr>
+                        <td>{{ student_names[i] }}</td>
+                        <td>
+                            <select name="attendance_status">
+                                <option value="Present">Present</option>
+                                <option value="Absent">Absent</option>
+                            </select>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

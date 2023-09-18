@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Attendance</title>
+</head>
+<body>
+    <h1>View Attendance</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Lab Attendance</th>
+                <th>Class Attendance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(student_names|length) %}
+                <tr>
+                    <td>{{ student_names[i] }}</td>
+                    <td>{{ attendance_data["Lab"][i] }}</td>
+                    <td>{{ attendance_data["Class"][i] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
