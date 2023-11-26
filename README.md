@@ -7,3 +7,5 @@ option to view all the entered marks
 If you lost any marks you can also view them because they can be saved in your local directory
 Can give attendance to x students
 It has 2 user login credentials ( can be added if you want )
+
+If you want to contact : karanamsaisharvan@gmail.com 
